@@ -1,0 +1,31 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd 
+   http://www.liquibase.org/xml/ns/dbchangelog 
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet author="Utkarsh" id="01">
+		<createTable tableName="project_list">
+			<column name="id" type="bigint">
+				<constraints primaryKey="true"
+					primaryKeyName="project_id_pk" />
+			</column>
+			<column name="owner" type="varchar(250)">
+				<constraints unique="true"
+					uniqueConstraintName="project_manager" />
+			</column>
+			<column name="level" type="varchar(20)"></column>
+		</createTable>
+	</changeSet>
+	<changeSet author="Utkarsh" id="02">
+		<insert tableName="project_list">
+			<column name="id" value="01" />
+			<column name="owner" value="Gumnaam Sharma" />
+			<column name="level" value="Intern" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>
